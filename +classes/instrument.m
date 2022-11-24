@@ -32,7 +32,7 @@ classdef instrument < dynamicprops
             obj.description = description;
             obj.datatype = datatype;
             switch obj.datatype
-                case 161 % A1 JOYSTICK_DX2_OUTPUT
+                case 161 % obsolete - A1 JOYSTICK_DX2_OUTPUT
                     obj.length = 5;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("Actual speed","mm/s","int_16",maxCycleCount);
@@ -42,7 +42,7 @@ classdef instrument < dynamicprops
                     obj.data(5) = classes.data("Operated","bit","boolean",maxCycleCount);
                     obj.data(6) = classes.data("Bouts","bouts/measurement","boolean",1);
                     obj.data(7) = classes.data("Operating time","s","float_64",1);
-                case 162 % A2 JOYSTICK_PG_OUTPUT
+                case 162 % obsolete - A2 JOYSTICK_PG_OUTPUT
                     obj.length = 6;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("Actual speed","mm/s","int_16",maxCycleCount);
@@ -53,7 +53,7 @@ classdef instrument < dynamicprops
                     obj.data(6) = classes.data("Operated","bit","boolean",maxCycleCount);
                     obj.data(7) = classes.data("Bouts","bouts/measurement","boolean",1);
                     obj.data(8) = classes.data("Operating time","s","float_64",1);
-                case 163 % A3 JOYSTICK_LINX_OUTPUT
+                case 163 % obsolete - A3 JOYSTICK_LINX_OUTPUT
                     obj.length = 5;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("Actual speed","mm/s","int_16",maxCycleCount);
@@ -63,7 +63,7 @@ classdef instrument < dynamicprops
                     obj.data(5) = classes.data("Operated","bit","boolean",maxCycleCount);
                     obj.data(6) = classes.data("Bouts","bouts/measurement","boolean",1);
                     obj.data(7) = classes.data("Operating time","s","float_64",1);
-                case 177 % B1 IMU_9AXIS_ROT_VEC
+                case 177 % obsolete - B1 IMU_9AXIS_ROT_VEC
                     obj.length = 26;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("ax","cm/s^2","int_16",maxCycleCount);
@@ -79,7 +79,7 @@ classdef instrument < dynamicprops
                     obj.data(11) = classes.data("i","0.001","int_16",maxCycleCount);
                     obj.data(12) = classes.data("j","0.001","int_16",maxCycleCount);
                     obj.data(13) = classes.data("k","0.001","int_16",maxCycleCount);
-                case 178 % B2 IMU_6AXIS
+                case 178 % obsolete - B2 IMU_6AXIS
                     obj.length = 12;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("ax","cm/s^2","int_16",maxCycleCount);
@@ -91,46 +91,75 @@ classdef instrument < dynamicprops
                  case 180 % B4 IMU_QUAT (Quat only)
                     obj.length = 8;
                     obj.data = classes.data.empty(0,obj.length);
-                    obj.data(1) = classes.data("real","?","int_16",maxCycleCount);
-                    obj.data(2) = classes.data("i","?","int_16",maxCycleCount);
-                    obj.data(3) = classes.data("j","?","int_16",maxCycleCount);
-                    obj.data(4) = classes.data("k","?","int_16",maxCycleCount);
-                 case 181 %  B5	IMU_QUAT_GYRO_ACC
+                    obj.data(1) = classes.data("a","real","int_16",maxCycleCount);
+                    obj.data(2) = classes.data("b","i","int_16",maxCycleCount);
+                    obj.data(3) = classes.data("c","j","int_16",maxCycleCount);
+                    obj.data(4) = classes.data("d","k","int_16",maxCycleCount);
+                 case 181 % obsolete - B5 IMU_QUAT_GYRO_ACC
                     obj.length = 20;
                     obj.data = classes.data.empty(0,obj.length);
-                    obj.data(1) = classes.data("real","?","int_16",maxCycleCount);
-                    obj.data(2) = classes.data("i","?","int_16",maxCycleCount);
-                    obj.data(3) = classes.data("j","?","int_16",maxCycleCount);
-                    obj.data(4) = classes.data("k","?","int_16",maxCycleCount);                    
+                    obj.data(1) = classes.data("obsolete - a","real","int_16",maxCycleCount);
+                    obj.data(2) = classes.data("obsolete - b","i","int_16",maxCycleCount);
+                    obj.data(3) = classes.data("obsolete - c","j","int_16",maxCycleCount);
+                    obj.data(4) = classes.data("obsolete - d","k","int_16",maxCycleCount);          
                     obj.data(5) = classes.data("gx","0.01 degree/s","int_16",maxCycleCount);
                     obj.data(6) = classes.data("gy","0.01 degree/s","int_16",maxCycleCount);
                     obj.data(7) = classes.data("gz","0.01 degree/s","int_16",maxCycleCount);
                     obj.data(8) = classes.data("ax","cm/s^2","int_16",maxCycleCount);
                     obj.data(9) = classes.data("ay","cm/s^2","int_16",maxCycleCount);
                     obj.data(10) = classes.data("az","cm/s^2","int_16",maxCycleCount); 
-                 case 182 % B6 IMU_QUAT_GYRO_ACC_100Hz 
+                 case 182 % obsolete - B6 IMU_QUAT_GYRO_ACC_100Hz 
                     obj.length = 40;
                     obj.data = classes.data.empty(0,obj.length);
-                    obj.data(1) = classes.data("real","?","int_16",maxCycleCount);
-                    obj.data(2) = classes.data("i","?","int_16",maxCycleCount);
-                    obj.data(3) = classes.data("j","?","int_16",maxCycleCount);
-                    obj.data(4) = classes.data("k","?","int_16",maxCycleCount);                    
+                    obj.data(1) = classes.data("obsolete - a","real","int_16",maxCycleCount);
+                    obj.data(2) = classes.data("obsolete - b","i","int_16",maxCycleCount);
+                    obj.data(3) = classes.data("obsolete - c","j","int_16",maxCycleCount);
+                    obj.data(4) = classes.data("obsolete - d","k","int_16",maxCycleCount);     
                     obj.data(5) = classes.data("gx","0.01 degree/s","int_16",maxCycleCount);
                     obj.data(6) = classes.data("gy","0.01 degree/s","int_16",maxCycleCount);
                     obj.data(7) = classes.data("gz","0.01 degree/s","int_16",maxCycleCount);
                     obj.data(8) = classes.data("ax","cm/s^2","int_16",maxCycleCount);
                     obj.data(9) = classes.data("ay","cm/s^2","int_16",maxCycleCount);
                     obj.data(10) = classes.data("az","cm/s^2","int_16",maxCycleCount);
-                    obj.data(11) = classes.data("real","?","int_16",maxCycleCount);
-                    obj.data(12) = classes.data("i","?","int_16",maxCycleCount);
-                    obj.data(13) = classes.data("j","?","int_16",maxCycleCount);
-                    obj.data(14) = classes.data("k","?","int_16",maxCycleCount);                    
+                    obj.data(11) = classes.data("obsolete - a","real","int_16",maxCycleCount);
+                    obj.data(12) = classes.data("obsolete - b","i","int_16",maxCycleCount);
+                    obj.data(13) = classes.data("obsolete - c","j","int_16",maxCycleCount);
+                    obj.data(14) = classes.data("obsolete - d","k","int_16",maxCycleCount);                    
                     obj.data(15) = classes.data("gx","0.01 degree/s","int_16",maxCycleCount);
                     obj.data(16) = classes.data("gy","0.01 degree/s","int_16",maxCycleCount);
                     obj.data(17) = classes.data("gz","0.01 degree/s","int_16",maxCycleCount);
                     obj.data(18) = classes.data("ax","cm/s^2","int_16",maxCycleCount);
                     obj.data(19) = classes.data("ay","cm/s^2","int_16",maxCycleCount);
                     obj.data(20) = classes.data("az","cm/s^2","int_16",maxCycleCount);    
+                 case 183 % B7 IMU_QUAT_100Hz (Quat only)
+                    obj.length = 16;
+                    obj.data = classes.data.empty(0,obj.length);
+                    obj.data(1) = classes.data("a","real","int_16",maxCycleCount);
+                    obj.data(2) = classes.data("b","i","int_16",maxCycleCount);
+                    obj.data(3) = classes.data("c","j","int_16",maxCycleCount);
+                    obj.data(4) = classes.data("d","k","int_16",maxCycleCount);
+                    obj.data(5) = classes.data("a","real","int_16",maxCycleCount);
+                    obj.data(6) = classes.data("b","i","int_16",maxCycleCount);
+                    obj.data(7) = classes.data("c","j","int_16",maxCycleCount);
+                    obj.data(8) = classes.data("d","k","int_16",maxCycleCount);
+                 case 184 % B8 IMU_QUAT_9DOF (Quat only)
+                    obj.length = 8;
+                    obj.data = classes.data.empty(0,obj.length);
+                    obj.data(1) = classes.data("a","real","int_16",maxCycleCount);
+                    obj.data(2) = classes.data("b","i","int_16",maxCycleCount);
+                    obj.data(3) = classes.data("c","j","int_16",maxCycleCount);
+                    obj.data(4) = classes.data("d","k","int_16",maxCycleCount);
+                 case 185 % B9 IMU_QUAT_9DOF_100Hz (Quat only)
+                    obj.length = 16;
+                    obj.data = classes.data.empty(0,obj.length);
+                    obj.data(1) = classes.data("a","real","int_16",maxCycleCount);
+                    obj.data(2) = classes.data("b","i","int_16",maxCycleCount);
+                    obj.data(3) = classes.data("c","j","int_16",maxCycleCount);
+                    obj.data(4) = classes.data("d","k","int_16",maxCycleCount);
+                    obj.data(5) = classes.data("a","real","int_16",maxCycleCount);
+                    obj.data(6) = classes.data("b","i","int_16",maxCycleCount);
+                    obj.data(7) = classes.data("c","j","int_16",maxCycleCount);
+                    obj.data(8) = classes.data("d","k","int_16",maxCycleCount);
                  case 186 % BA IMU_GYRO_ACC_MAG
                     obj.length = 18;
                     obj.data = classes.data.empty(0,obj.length);                  
@@ -164,7 +193,7 @@ classdef instrument < dynamicprops
                     obj.data(16) = classes.data("mx","µT","int_16",maxCycleCount);
                     obj.data(17) = classes.data("my","µT","int_16",maxCycleCount);
                     obj.data(18) = classes.data("mz","µT","int_16",maxCycleCount);   
-                case 193 % C1 GPS_MIN_DATA
+                case 193 % obsolete - C1 GPS_MIN_DATA
                     obj.length = 17;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("longitude","degrees","float_32",maxCycleCount);
@@ -172,19 +201,19 @@ classdef instrument < dynamicprops
                     obj.data(3) = classes.data("hMSL","m","float_32",maxCycleCount);
                     obj.data(4) = classes.data("speed","m/s","float_32",maxCycleCount);
                     obj.data(5) = classes.data("Reception","-","int_8",maxCycleCount);
-                case 194 % C2 GPS_STATUS
+                case 194 % obsolete - C2 GPS_STATUS
                     error("Datatype unsupported - not yet implemented");
-                case 195 % C3 GPS_DATA_STATUS
+                case 195 % obsolete - C3 GPS_DATA_STATUS
                     error("Datatype unsupported - not yet implemented");
-                case 209 % D1 AN_DISTANCE_NODES D1 (US)
+                case 209 % obsolete - D1 AN_DISTANCE_NODES D1 (US)
                     obj.length = 2;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("US","cm","uint_16",maxCycleCount);
-                case 210 % D2 CAN_DISTANCE_NODES D2 (IR)
+                case 210 % obsolete - D2 CAN_DISTANCE_NODES D2 (IR)
                     obj.length = 1;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("IR","cm","uint_8",maxCycleCount);
-                case 211 % D3 CAN_DISTANCE_NODES D3 (US+IR)
+                case 211 % obsolete - D3 CAN_DISTANCE_NODES D3 (US+IR)
                     obj.length = 5;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("Calculated","cm","uint_16",maxCycleCount);
@@ -192,7 +221,7 @@ classdef instrument < dynamicprops
                         obj.data(2) = classes.data("US","cm","uint_16",maxCycleCount);
                         obj.data(3) = classes.data("IR","cm","uint_8",maxCycleCount);
                     end
-                case 212 % D4 CAN_DISTANCE_NODES D4 (US+2IR)
+                case 212 % obsolete - D4 CAN_DISTANCE_NODES D4 (US+2IR)
                     obj.length = 6;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("Calculated","cm","uint_16",maxCycleCount);
@@ -201,7 +230,7 @@ classdef instrument < dynamicprops
                         obj.data(3) = classes.data("IR 1","cm","uint_8",maxCycleCount);
                         obj.data(4) = classes.data("IR 2","cm","uint_8",maxCycleCount);
                     end
-                case 213 % D5 CAN_DISTANCE_NODES D5 (US+3IR)
+                case 213 % obsolete - D5 CAN_DISTANCE_NODES D5 (US+3IR)
                     obj.length = 7;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("Calculated","cm","uint_16",maxCycleCount);
@@ -211,7 +240,7 @@ classdef instrument < dynamicprops
                         obj.data(4) = classes.data("IR 2","cm","uint_8",maxCycleCount);
                         obj.data(5) = classes.data("IR 3","cm","uint_8",maxCycleCount);
                     end
-                case 214 % D6  CAN_DISTANCE_NODES D6(4IR)
+                case 214 % obsolete - D6  CAN_DISTANCE_NODES D6(4IR)
                     obj.length = 6;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("Calculated","cm","uint_16",maxCycleCount);
@@ -221,11 +250,11 @@ classdef instrument < dynamicprops
                         obj.data(4) = classes.data("IR 3","cm","uint_8",maxCycleCount);
                         obj.data(5) = classes.data("IR 4","cm","uint_8",maxCycleCount);
                     end
-                case 215 % D7  CAN_DISTANCE_NODES D7 (4IR) Only Calculated Value
+                case 215 % obsolete - D7  CAN_DISTANCE_NODES D7 (4IR) Only Calculated Value
                     obj.length = 2;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("Calculated distance","cm","uint_16",maxCycleCount);
-                case 216 % D8  CAN_DISTANCE_NODES D8 (US+3IR) Only Calculated Value
+                case 216 % obsolete - D8  CAN_DISTANCE_NODES D8 (US+3IR) Only Calculated Value
                     obj.length = 2;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("Calculated distance","cm","uint_16",maxCycleCount);
@@ -233,7 +262,7 @@ classdef instrument < dynamicprops
                     obj.length = 8;
                     obj.data = classes.data.empty(0,obj.length);
                     obj.data(1) = classes.data("unix_epoch_ms","ms","uint_64",maxCycleCount);
-                case 241 % F1 Android Device
+                case 241 % obsolete - F1 Android Device
                     obj.length = 2;
                     obj.data = classes.data.empty(0,4);
                     obj.data(1) = classes.data("OAS Calculated Value","","uint_8",maxCycleCount);
@@ -241,7 +270,7 @@ classdef instrument < dynamicprops
                     obj.data(3) = classes.data("Haptic Feedback","","boolean",maxCycleCount);
                     obj.data(4) = classes.data("Visual Feedback","","boolean",maxCycleCount);
                     
-                case 242 % F2 Android Device
+                case 242 % obsolete - F2 Android Device
                     obj.length = 3;
                     obj.data = classes.data.empty(0,12);
                     obj.data(1) = classes.data("OAS Calculated Value","","uint_8",maxCycleCount);
