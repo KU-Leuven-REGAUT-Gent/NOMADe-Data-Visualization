@@ -553,23 +553,23 @@ classdef instrument < dynamicprops
                     obj.data(4) = obj.data(4).remove_value(cyclecounter_Keeplist);
                     obj.data(5) = obj.data(5).remove_value(cyclecounter_Keeplist);
                     obj.data(6) = obj.data(6).remove_value(cyclecounter_Keeplist);
-                case 180 % B4  	IMU_QUAT (Quat only)
+                case 180 % B4 IMU_QUAT (Quat only)
                     obj.data(1) = obj.data(1).remove_value(cyclecounter_Keeplist);
                     obj.data(2) = obj.data(2).remove_value(cyclecounter_Keeplist);
                     obj.data(3) = obj.data(3).remove_value(cyclecounter_Keeplist);
                     obj.data(4) = obj.data(4).remove_value(cyclecounter_Keeplist);
-                case 181 % B5  	IMU_QUAT_GYRO_ACC
+                case 181 % B5 IMU_QUAT_GYRO_ACC
                     obj.data(1) = obj.data(1).remove_value(cyclecounter_Keeplist);
                     obj.data(2) = obj.data(2).remove_value(cyclecounter_Keeplist);
                     obj.data(3) = obj.data(3).remove_value(cyclecounter_Keeplist);
                     obj.data(4) = obj.data(4).remove_value(cyclecounter_Keeplist);
-                     obj.data(5) = obj.data(5).remove_value(cyclecounter_Keeplist);
+                    obj.data(5) = obj.data(5).remove_value(cyclecounter_Keeplist);
                     obj.data(6) = obj.data(6).remove_value(cyclecounter_Keeplist);
                     obj.data(7) = obj.data(7).remove_value(cyclecounter_Keeplist);
                     obj.data(8) = obj.data(8).remove_value(cyclecounter_Keeplist);
                     obj.data(9) = obj.data(9).remove_value(cyclecounter_Keeplist);
                     obj.data(10) = obj.data(10).remove_value(cyclecounter_Keeplist);
-                case 182 % B6  	 IMU_QUAT_GYRO_ACC_100Hz 
+                case 182 % B6 IMU_QUAT_GYRO_ACC_100Hz 
                     obj.data(1) = obj.data(1).remove_value(cyclecounter_Keeplist);
                     obj.data(2) = obj.data(2).remove_value(cyclecounter_Keeplist);
                     obj.data(3) = obj.data(3).remove_value(cyclecounter_Keeplist);
@@ -590,6 +590,58 @@ classdef instrument < dynamicprops
                     obj.data(18) = obj.data(18).remove_value(cyclecounter_Keeplist);
                     obj.data(19) = obj.data(19).remove_value(cyclecounter_Keeplist);
                     obj.data(20) = obj.data(20).remove_value(cyclecounter_Keeplist);
+                case 183 % B7 IMU_QUAT_100Hz (Quat only) 
+                    obj.data(1) = obj.data(1).remove_value(cyclecounter_Keeplist);
+                    obj.data(2) = obj.data(2).remove_value(cyclecounter_Keeplist);
+                    obj.data(3) = obj.data(3).remove_value(cyclecounter_Keeplist);
+                    obj.data(4) = obj.data(4).remove_value(cyclecounter_Keeplist);
+                    obj.data(5) = obj.data(5).remove_value(cyclecounter_Keeplist);
+                    obj.data(6) = obj.data(6).remove_value(cyclecounter_Keeplist);
+                    obj.data(7) = obj.data(7).remove_value(cyclecounter_Keeplist);
+                    obj.data(8) = obj.data(8).remove_value(cyclecounter_Keeplist);
+                case 184 % B8 IMU_QUAT_9DOF (Quat only) 
+                    obj.data(1) = obj.data(1).remove_value(cyclecounter_Keeplist);
+                    obj.data(2) = obj.data(2).remove_value(cyclecounter_Keeplist);
+                    obj.data(3) = obj.data(3).remove_value(cyclecounter_Keeplist);
+                    obj.data(4) = obj.data(4).remove_value(cyclecounter_Keeplist);
+                case 185 % B9 IMU_QUAT_9DOF_100Hz (Quat only) 
+                    obj.data(1) = obj.data(1).remove_value(cyclecounter_Keeplist);
+                    obj.data(2) = obj.data(2).remove_value(cyclecounter_Keeplist);
+                    obj.data(3) = obj.data(3).remove_value(cyclecounter_Keeplist);
+                    obj.data(4) = obj.data(4).remove_value(cyclecounter_Keeplist);
+                    obj.data(5) = obj.data(5).remove_value(cyclecounter_Keeplist);
+                    obj.data(6) = obj.data(6).remove_value(cyclecounter_Keeplist);
+                    obj.data(7) = obj.data(7).remove_value(cyclecounter_Keeplist);
+                    obj.data(8) = obj.data(8).remove_value(cyclecounter_Keeplist);
+                case 186 % BA IMU_GYRO_ACC_MAG 
+                    obj.data(1) = obj.data(1).remove_value(cyclecounter_Keeplist);
+                    obj.data(2) = obj.data(2).remove_value(cyclecounter_Keeplist);
+                    obj.data(3) = obj.data(3).remove_value(cyclecounter_Keeplist);
+                    obj.data(4) = obj.data(4).remove_value(cyclecounter_Keeplist);
+                    obj.data(5) = obj.data(5).remove_value(cyclecounter_Keeplist);
+                    obj.data(6) = obj.data(6).remove_value(cyclecounter_Keeplist);
+                    obj.data(7) = obj.data(7).remove_value(cyclecounter_Keeplist);
+                    obj.data(8) = obj.data(8).remove_value(cyclecounter_Keeplist);
+                    obj.data(9) = obj.data(9).remove_value(cyclecounter_Keeplist);
+                case 187 % BB IMU_GYRO_ACC_MAG_100Hz 
+                    obj.data(1) = obj.data(1).remove_value(cyclecounter_Keeplist);
+                    obj.data(2) = obj.data(2).remove_value(cyclecounter_Keeplist);
+                    obj.data(3) = obj.data(3).remove_value(cyclecounter_Keeplist);
+                    obj.data(4) = obj.data(4).remove_value(cyclecounter_Keeplist);
+                    obj.data(5) = obj.data(5).remove_value(cyclecounter_Keeplist);
+                    obj.data(6) = obj.data(6).remove_value(cyclecounter_Keeplist);
+                    obj.data(7) = obj.data(7).remove_value(cyclecounter_Keeplist);
+                    obj.data(8) = obj.data(8).remove_value(cyclecounter_Keeplist);
+                    obj.data(9) = obj.data(9).remove_value(cyclecounter_Keeplist);
+                    obj.data(10) = obj.data(10).remove_value(cyclecounter_Keeplist);
+                    obj.data(11) = obj.data(11).remove_value(cyclecounter_Keeplist);
+                    obj.data(12) = obj.data(12).remove_value(cyclecounter_Keeplist);
+                    obj.data(13) = obj.data(13).remove_value(cyclecounter_Keeplist);
+                    obj.data(14) = obj.data(14).remove_value(cyclecounter_Keeplist);
+                    obj.data(15) = obj.data(15).remove_value(cyclecounter_Keeplist);
+                    obj.data(16) = obj.data(16).remove_value(cyclecounter_Keeplist);
+                    obj.data(17) = obj.data(17).remove_value(cyclecounter_Keeplist);
+                    obj.data(18) = obj.data(18).remove_value(cyclecounter_Keeplist);
                 case 193 % C1
                     obj.data(1) = obj.data(1).remove_value(cyclecounter_Keeplist);
                     obj.data(2) = obj.data(2).remove_value(cyclecounter_Keeplist);
