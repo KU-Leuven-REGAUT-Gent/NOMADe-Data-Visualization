@@ -380,6 +380,29 @@ classdef instrument < dynamicprops
                     obj.data(18) = obj.data(18).add_value(cyclecounter_list, blob(:,35:36));
                     obj.data(19) = obj.data(19).add_value(cyclecounter_list, blob(:,37:38));
                     obj.data(20) = obj.data(20).add_value(cyclecounter_list, blob(:,39:40));
+                 case 183 % B7 IMU_QUAT_100Hz (Quat only)
+                    obj.data(1) = obj.data(1).add_value(cyclecounter_list, blob(:,1:2));
+                    obj.data(2) = obj.data(2).add_value(cyclecounter_list, blob(:,3:4));
+                    obj.data(3) = obj.data(3).add_value(cyclecounter_list, blob(:,5:6));
+                    obj.data(4) = obj.data(4).add_value(cyclecounter_list, blob(:,7:8));
+                    obj.data(5) = obj.data(5).add_value(cyclecounter_list, blob(:,9:10));
+                    obj.data(6) = obj.data(6).add_value(cyclecounter_list, blob(:,11:12));
+                    obj.data(7) = obj.data(7).add_value(cyclecounter_list, blob(:,13:14));
+                    obj.data(8) = obj.data(8).add_value(cyclecounter_list, blob(:,15:16));
+                 case 184 % B8 IMU_QUAT_9DOF (Quat only)
+                    obj.data(1) = obj.data(1).add_value(cyclecounter_list, blob(:,1:2));
+                    obj.data(2) = obj.data(2).add_value(cyclecounter_list, blob(:,3:4));
+                    obj.data(3) = obj.data(3).add_value(cyclecounter_list, blob(:,5:6));
+                    obj.data(4) = obj.data(4).add_value(cyclecounter_list, blob(:,7:8));
+                 case 185 % B9 IMU_QUAT_9DOF_100Hz (Quat only)
+                    obj.data(1) = obj.data(1).add_value(cyclecounter_list, blob(:,1:2));
+                    obj.data(2) = obj.data(2).add_value(cyclecounter_list, blob(:,3:4));
+                    obj.data(3) = obj.data(3).add_value(cyclecounter_list, blob(:,5:6));
+                    obj.data(4) = obj.data(4).add_value(cyclecounter_list, blob(:,7:8));
+                    obj.data(5) = obj.data(5).add_value(cyclecounter_list, blob(:,9:10));
+                    obj.data(6) = obj.data(6).add_value(cyclecounter_list, blob(:,11:12));
+                    obj.data(7) = obj.data(7).add_value(cyclecounter_list, blob(:,13:14));
+                    obj.data(8) = obj.data(8).add_value(cyclecounter_list, blob(:,15:16));
                  case 186 % BA IMU_GYRO_ACC_MAG 
                     obj.data(1) = obj.data(1).add_value(cyclecounter_list, blob(:,1:2));
                     obj.data(2) = obj.data(2).add_value(cyclecounter_list, blob(:,3:4));
@@ -390,7 +413,7 @@ classdef instrument < dynamicprops
                     obj.data(7) = obj.data(7).add_value(cyclecounter_list, blob(:,13:14));
                     obj.data(8) = obj.data(8).add_value(cyclecounter_list, blob(:,15:16));
                     obj.data(9) = obj.data(9).add_value(cyclecounter_list, blob(:,17:18));
-                 case 187 % BA IMU_GYRO_ACC_MAG 100HZ
+                 case 187 % BB IMU_GYRO_ACC_MAG 100HZ
                     obj.data(1) = obj.data(1).add_value(cyclecounter_list, blob(:,1:2));
                     obj.data(2) = obj.data(2).add_value(cyclecounter_list, blob(:,3:4));
                     obj.data(3) = obj.data(3).add_value(cyclecounter_list, blob(:,5:6));
@@ -1407,6 +1430,89 @@ classdef instrument < dynamicprops
                     subplotArray(3) = subplot(3,1,3);
                     obj.data(20).plot(startTime,true,true,true,plotDownSample,downSampleFactor);
                     linkaxes(subplotArray,'x');
+
+                  case 183 % B7 IMU_QUAT_100Hz (Quat only)   
+                    % Quaternion
+                    subplotArray(1) = subplot(4,1,1);
+                    obj.data(1).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) = subplot(4,1,2);
+                    obj.data(2).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(4,1,3);
+                    obj.data(3).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(4) = subplot(4,1,4);
+                    obj.data(4).plot(startTime,true,true,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');       
+                    Title = [obj.name newline  '- ' ...
+                        datestr(datetime(startTime), ...
+                        'dd/mm/yyyy') ' - Measurement ID: ' num2str(measureID) ' - '];
+                    try
+                        sgtitle(Title,'fontsize',fontSize+2);
+                    catch
+                        suptitle(Title);
+                    end
+
+                    % Quaternion
+                    figure();
+                    set(gca,'fontsize',20) % set fontsize of the plot to 20
+                    set(gcf,'units','normalized','outerposition',[0 0 1 1]) % full screen
+                    set(0, 'DefaultAxesFontSize', fontSize);
+                    subplotArray(1) = subplot(4,1,1);
+                    obj.data(5).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) = subplot(4,1,2);
+                    obj.data(6).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(4,1,3);
+                    obj.data(7).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(4) = subplot(4,1,4);
+                    obj.data(8).plot(startTime,true,true,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');   
+
+                  case 184 % B8 IMU_QUAT_9DOF (Quat only)   
+                    % Quaternion
+                    subplotArray(1) = subplot(4,1,1);
+                    obj.data(1).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) = subplot(4,1,2);
+                    obj.data(2).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(4,1,3);
+                    obj.data(3).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(4) = subplot(4,1,4);
+                    obj.data(4).plot(startTime,true,true,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');  
+
+                    case 185 % B9 IMU_QUAT_9DOF_100Hz (Quat only)   
+                    % Quaternion
+                    subplotArray(1) = subplot(4,1,1);
+                    obj.data(1).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) = subplot(4,1,2);
+                    obj.data(2).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(4,1,3);
+                    obj.data(3).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(4) = subplot(4,1,4);
+                    obj.data(4).plot(startTime,true,true,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');       
+                    Title = [obj.name newline  '- ' ...
+                        datestr(datetime(startTime), ...
+                        'dd/mm/yyyy') ' - Measurement ID: ' num2str(measureID) ' - '];
+                    try
+                        sgtitle(Title,'fontsize',fontSize+2);
+                    catch
+                        suptitle(Title);
+                    end
+
+                    % Quaternion
+                    figure();
+                    set(gca,'fontsize',20) % set fontsize of the plot to 20
+                    set(gcf,'units','normalized','outerposition',[0 0 1 1]) % full screen
+                    set(0, 'DefaultAxesFontSize', fontSize);
+                    subplotArray(1) = subplot(4,1,1);
+                    obj.data(5).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) = subplot(4,1,2);
+                    obj.data(6).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(4,1,3);
+                    obj.data(7).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(4) = subplot(4,1,4);
+                    obj.data(8).plot(startTime,true,true,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');   
+
                   case 186 % BA  IMU_GYRO_ACC_MAG                                         
                     subplotArray(1) = subplot(3,1,1);
                     obj.data(1).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
