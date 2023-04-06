@@ -116,7 +116,7 @@ classdef measurement < dynamicprops
             if useLocal
                 server =  "jdbc:mysql://" + localUrl + ":20100/";
             else
-                server = "jdbc:mysql://clouddb.myriade.be:20100/";
+                server = "jdbc:mysql://nmd.fors-it.be:3306/";
             end
             % TODO: Check for valid connection
             obj.conn = database(databaseName, username, password, jdbcDriver, server);
